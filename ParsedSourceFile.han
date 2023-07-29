@@ -1,4 +1,15 @@
-int main(){ 
+
+class Object {
+public: 
+  string s_ObjectName = "newObject";
+  Object(string ObjectName) {
+    if(ObjectName != "")s_ObjectName = ObjectName;
+  }
+  
+}
+
+int main() {
   int num1 = 114514;
   double num2 = 114.514 / 114.514 * 1.14514;
+  Object newObject = new Object("this is a new object");
 }
