@@ -1,20 +1,52 @@
-typedef char *string;
-
-struct Pos
+namespace ChaosEngine
 {
-  float x, y;
+  typedef char *string;
+
+  struct Pos
+  {
+    float x, y;
+  };
+
+  class ObjectModel
+  {
+  public:
+    string name;
+    Pos pos;
+
+    ObjectModel(){
+
+    };
+    void release(){
+
+    };
+  };
+
+  namespace Resource
+  {
+    class Texture
+    {
+      string self_name;
+      Texture(){};
+      string getName() { return self_name; };
+    };
+  };
+
+  namespace EngineObject
+  {
+    using namespace Resource;
+
+    class Sprite : ObjectModel
+    {
+    public:
+      Texture *lpTexture = NULL;
+      Sprite(){};
+    };
+  };
+
 };
 
-class ObjectModel
+int main()
 {
-public:
-  string name;
-  Pos pos;
 
-  ObjectModel(){
-
-  };
-  void Release(){
-
-  };
-};
+  return 0;
+}
