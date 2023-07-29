@@ -16,11 +16,11 @@ namespace ChaosEngine
     ObjectModel(){
 
     };
-    void release(){
-
-    };
+    virtual void render(){};
+    virtual void release(){};
   };
 
+  // Engine Resources
   namespace Resource
   {
     class Texture
@@ -28,9 +28,15 @@ namespace ChaosEngine
       string self_name;
       Texture(){};
       string getName() { return self_name; };
+      void setName(string newName)
+      {
+        if (newName != "")
+          self_name = newName;
+      };
     };
   };
 
+  // Engine Objects
   namespace EngineObject
   {
     using namespace Resource;
@@ -38,8 +44,12 @@ namespace ChaosEngine
     class Sprite : ObjectModel
     {
     public:
-      Texture *lpTexture = NULL;
+      Texture **self_pTexture = NULL;
       Sprite(){};
+      void setTexture(Texture **new_pTexture)
+      {
+        self_pTexture = new_pTexture;
+      }
     };
   };
 
