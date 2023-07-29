@@ -1,12 +1,19 @@
+/*
+  Thanks to use ChaosEngine which is sharing happiness with everyone to make your own better games!
+*/
+
+// ChaosEngine
 namespace ChaosEngine
 {
   typedef char *string;
 
+  // Engine Structures
   struct Pos
   {
     float x, y;
   };
 
+  // Engine Models
   class ObjectModel
   {
   public:
@@ -36,6 +43,13 @@ namespace ChaosEngine
     };
   };
 
+  // Engine Internal Interfaces
+  namespace InternalInterface
+  {
+    using namespace Resource;
+    void graphic_drawTexture(Texture new_texture){};
+  }
+
   // Engine Objects
   namespace EngineObject
   {
@@ -50,6 +64,10 @@ namespace ChaosEngine
       {
         self_pTexture = new_pTexture;
       }
+      // @Override
+      void render(){
+
+      };
     };
   };
 
